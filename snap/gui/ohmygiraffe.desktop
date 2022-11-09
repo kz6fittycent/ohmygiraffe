@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=oh my giraffe
+Comment=a delightful game of survival
+Exec=ohmygiraffe
+Icon=${SNAP}/meta/gui/ohmygiraffe.png
+Terminal=false
+Type=Application
+Categories=Game;Simulation;
+GenericName=
+Keywords=game

@@ -1,0 +1,48 @@
+name: ohmygiraffe
+version: 'git'
+summary: ohmygiraffe
+description: |
+  A delightful game of survival
+
+base: core18
+grade: stable
+confinement: strict
+license: MIT
+
+architectures:
+  - build-on: amd64
+
+apps:
+  ohmygiraffe:
+    extensions:
+      - gnome-3-34
+    command: "usr/bin/love-0.9 $SNAP/usr/bin/oh-my-giraffe.love"
+    environment:
+      LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP"    
+    plugs: 
+      - audio-playback
+      - x11
+      - opengl
+      - unity7
+      
+parts:
+  ohmygiraffe:
+    source: https://github.com/kz6fittycent/ohmygiraffe
+    source-type: git
+    plugin: nil
+    
+    override-build: |
+      mkdir -p BUILD
+      cd BUILD
+      
+      # Grab oh-my-giraffe
+      wget "http://www.ohmygiraffe.com/static/releases/oh-my-giraffe.love"
+      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/bin/
+      cp oh-my-giraffe.love $SNAPCRAFT_PART_INSTALL/usr/bin/
+      
+    build-packages:
+      - wget
+
+    stage-packages:
+      - freeglut3
+      - love
