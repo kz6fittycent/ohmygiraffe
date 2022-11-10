@@ -1,5 +1,5 @@
 name: ohmygiraffe
-version: 'git'
+adopt-info: ohmygiraffe
 summary: ohmygiraffe
 description: |
   A delightful game of survival
@@ -30,6 +30,10 @@ parts:
     source: https://github.com/kz6fittycent/ohmygiraffe
     source-type: git
     plugin: nil
+    
+    override-pull: |
+      snapcraftctl pull
+      snapcraftctl set-version "$(git describe --tags | sed 's/^v//')"
     
     override-build: |
       mkdir -p BUILD
