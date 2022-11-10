@@ -7,7 +7,7 @@ description: |
 base: core18
 grade: stable
 confinement: strict
-license: MIT
+license: Proprietary
 
 architectures:
   - build-on: amd64
