@@ -51,3 +51,4 @@ parts:
     stage-packages:
       - freeglut3
       - love
+      - libslang2
