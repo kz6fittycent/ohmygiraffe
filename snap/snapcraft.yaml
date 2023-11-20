@@ -56,3 +56,4 @@ parts:
 
     stage-snaps:
       - love
+      - pixbuf-desktop
