@@ -15,7 +15,7 @@ architectures:
 apps:
   ohmygiraffe:
     extensions:
-      - gnome-3-34
+      - gnome-3-38
     command: "usr/bin/love-11.2 $SNAP/usr/bin/oh-my-giraffe.love"
     environment:
       LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP"    
