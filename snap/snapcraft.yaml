@@ -4,7 +4,7 @@ summary: ohmygiraffe
 description: |
   A delightful game of survival
 
-base: core18
+base: core20
 grade: stable
 confinement: strict
 license: Proprietary
