@@ -4,19 +4,22 @@ summary: ohmygiraffe
 description: |
   A delightful game of survival
 
-base: core18
+base: core20
 grade: stable
 confinement: strict
 license: Proprietary
 
 architectures:
   - build-on: amd64
-
+package-repositories:
+ - type: apt
+   ppa: bartbes/love-stable
+   
 apps:
   ohmygiraffe:
     extensions:
-      - gnome-3-34
-    command: "bin/love $SNAP/usr/bin/oh-my-giraffe.love"
+      - gnome-3-38
+    command: "usr/bin/love $SNAP/usr/bin/oh-my-giraffe.love"
     environment:
       LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP"    
     plugs: 
@@ -49,6 +52,4 @@ parts:
 
     stage-packages:
       - freeglut3
-      
-    stage-snaps:
       - love
