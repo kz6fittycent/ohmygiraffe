@@ -19,7 +19,7 @@ apps:
   ohmygiraffe:
     extensions:
       - gnome-3-38
-    command: "usr/bin/love-0.9.1 $SNAP/usr/bin/oh-my-giraffe.love"
+    command: "usr/bin/love-0.9 $SNAP/usr/bin/oh-my-giraffe.love"
     environment:
       LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP"    
     plugs: 
@@ -52,4 +52,4 @@ parts:
 
     stage-packages:
       - freeglut3
-      - love=0.9.1
+      - love=0.9
