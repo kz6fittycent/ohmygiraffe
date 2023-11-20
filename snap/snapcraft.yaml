@@ -16,7 +16,7 @@ apps:
   ohmygiraffe:
     extensions:
       - gnome-3-34
-    command: "usr/bin/love-0.9 $SNAP/usr/bin/oh-my-giraffe.love"
+    command: "usr/bin/love-11.2 $SNAP/usr/bin/oh-my-giraffe.love"
     environment:
       LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP"    
     plugs: 
@@ -43,10 +43,14 @@ parts:
       wget "http://www.ohmygiraffe.com/static/releases/oh-my-giraffe.love"
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/bin/
       cp oh-my-giraffe.love $SNAPCRAFT_PART_INSTALL/usr/bin/
-      
+    
+    build-snaps:
+      - love
     build-packages:
       - wget
 
     stage-packages:
       - freeglut3
+
+    stage-snaps:
       - love
