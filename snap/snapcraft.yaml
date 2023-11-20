@@ -52,4 +52,4 @@ parts:
 
     stage-packages:
       - freeglut3
-      - love-0.9.1
+      - love=0.9.1
