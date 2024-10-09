@@ -22,7 +22,7 @@ apps:
   ohmygiraffe:
     extensions:
       - gnome
-    command: "usr/bin/love-0.9 $SNAP/usr/bin/oh-my-giraffe.love"
+    command: launch_lovegame
     environment:
       LD_LIBRARY_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_ON/pulseaudio:$SNAP"    
     plugs: 
@@ -72,8 +72,12 @@ parts:
 
   love:
     plugin: dump
-    source: https://github.com/love2d/love/releases/download/0.9.0/love_0.9.0_amd64.deb
+    source: https://github.com/love2d/love/releases/download/0.9.1/love_0.9.1_amd64.deb
     
   liblove:
     plugin: dump
-    source: https://github.com/love2d/love/releases/download/0.9.0/liblove_0.9.0_amd64.deb      
+    source: https://github.com/love2d/love/releases/download/0.9.1/liblove_0.9.1_amd64.deb
+    
+  launcher:
+    plugin: dump
+    source: ./launcher      
