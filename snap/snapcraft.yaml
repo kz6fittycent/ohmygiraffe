@@ -22,7 +22,7 @@ apps:
   ohmygiraffe:
     extensions:
       - gnome
-    command: "usr/bin/love $SNAP/usr/bin/oh-my-giraffe.love"
+    command: "usr/bin/love-0.9 $SNAP/usr/bin/oh-my-giraffe.love"
     environment:
       LD_LIBRARY_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_ON/pulseaudio:$SNAP"    
     plugs: 
