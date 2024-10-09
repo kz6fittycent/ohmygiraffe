@@ -70,10 +70,10 @@ parts:
       - libmodplug1
       - libphysfs1
 
-  love0.9.1:
+  love:
     plugin: dump
-    source: https://github.com/love2d/love/releases/download/0.9.1/love_0.9.1_amd64.deb
+    source: https://github.com/love2d/love/releases/download/0.9.0/love_0.9.0_amd64.deb
     
-  liblove0.9.1:
+  liblove:
     plugin: dump
-    source: https://github.com/love2d/love/releases/download/0.9.1/liblove_0.9.1_amd64.deb      
+    source: https://github.com/love2d/love/releases/download/0.9.0/liblove_0.9.0_amd64.deb      
