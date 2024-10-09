@@ -4,21 +4,27 @@ summary: ohmygiraffe
 description: |
   A delightful game of survival
 
-base: core18
+base: core24
 grade: stable
 confinement: strict
 license: Proprietary
+website: http://www.ohmygiraffe.com
+source-code: https://github.com/kz6fittycent/ohmygiraffe
+issues: https://github.com/kz6fittycent/ohmygiraffe
+icon: snap/gui/ohmygiraffe.png
 
-architectures:
-  - build-on: amd64
+platforms:
+  amd64:
+    build-on: [amd64]
+    build-for: [amd64]
 
 apps:
   ohmygiraffe:
     extensions:
-      - gnome-3-34
-    command: "usr/bin/love-0.9 $SNAP/usr/bin/oh-my-giraffe.love"
+      - gnome
+    command: "usr/bin/love $SNAP/usr/bin/oh-my-giraffe.love"
     environment:
-      LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP"    
+      LD_LIBRARY_PATH: "$SNAP/usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_ON/pulseaudio:$SNAP"    
     plugs: 
       - audio-playback
       - x11
@@ -32,8 +38,8 @@ parts:
     plugin: nil
     
     override-pull: |
-      snapcraftctl pull
-      snapcraftctl set-version "$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"
+      craftctl default
+      craftctl set version="$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)" 
     
     override-build: |
       mkdir -p BUILD
@@ -41,12 +47,33 @@ parts:
       
       # Grab oh-my-giraffe
       wget "http://www.ohmygiraffe.com/static/releases/oh-my-giraffe.love"
-      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/bin/
-      cp oh-my-giraffe.love $SNAPCRAFT_PART_INSTALL/usr/bin/
+      mkdir -p $CRAFT_PART_INSTALL/usr/bin/
+      cp oh-my-giraffe.love $CRAFT_PART_INSTALL/usr/bin/
       
     build-packages:
       - wget
 
     stage-packages:
-      - freeglut3
-      - love
+      - freeglut3-dev
+      - libgl1-mesa-dri
+      - libglew2.2
+      - lua-socket
+      - libluajit-5.1-2
+      - libsdl2-2.0-0
+      - libopenal1
+      - libilmbase-dev
+      - libdevil1c2
+      - libogg0
+      - libmpg123-0
+      - libtheora0
+      - libvorbisfile3
+      - libmodplug1
+      - libphysfs1
+
+  love0.9.1:
+    plugin: dump
+    source: https://github.com/love2d/love/releases/download/0.9.1/love_0.9.1_amd64.deb
+    
+  liblove0.9.1:
+    plugin: dump
+    source: https://github.com/love2d/love/releases/download/0.9.1/liblove_0.9.1_amd64.deb      
