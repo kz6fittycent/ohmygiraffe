@@ -12,6 +12,7 @@ website: http://www.ohmygiraffe.com
 source-code: https://github.com/kz6fittycent/ohmygiraffe
 issues: https://github.com/kz6fittycent/ohmygiraffe
 icon: snap/gui/ohmygiraffe.png
+donation: https://www.patreon.com/kz6fittycent
 
 platforms:
   amd64:
